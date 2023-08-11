@@ -34,6 +34,8 @@ void Window::DoMainLoop(void)
             glClear(GL_COLOR_BUFFER_BIT);
             if (this->m_FrameCallback) this->m_FrameCallback(*this);
 
+            glfwGetFramebufferSize(m_Window, &m_FBWidth, &m_FBHeight);
+            glViewport(0, 0, m_FBWidth, m_FBHeight);
             glfwSwapBuffers(m_Window);
         }
     }
